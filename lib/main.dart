@@ -20,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   String _startMeasure;
   String _convertedMeasure;
   double _numberForm;
+  String _resultMessage;
 
   void initState() {
     _numberForm = 0;
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
     '6': [0, 0, 453.592, 0.453592, 0, 0, 1, 16],
     '7': [0, 0, 28.3495, 0.0283495, 3.28084, 0, 0.0625, 1],
   };
-  String _resultMessage;
+
 
   void convert(double value, String from, String to) {
     int nFrom = _measuresMap[from];
