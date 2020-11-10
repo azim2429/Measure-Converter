@@ -10,12 +10,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final TextStyle inputStyle = TextStyle(
     fontSize: 16,
-    color: Colors.blue[900],
+    color: Colors.blue[700],
   );
 
   final TextStyle labelStyle = TextStyle(
     fontSize: 20,
-    color: Colors.blueAccent[100],
+    color: Colors.black,
   );
   String _startMeasure;
   String _convertedMeasure;
@@ -117,6 +117,8 @@ class _MyAppState extends State<MyApp> {
               ),
               Spacer(),
               DropdownButton(
+                style: inputStyle,
+                hint: Text("Enter The Unit",style: inputStyle,),
                 isExpanded: true,
                 items: _measures.map((String value) {
                   return DropdownMenuItem<String>(
@@ -140,6 +142,7 @@ class _MyAppState extends State<MyApp> {
               Spacer(),
               DropdownButton(
                 isExpanded: true,
+                hint: Text("Enter The Unit",style: inputStyle,),
                 style: inputStyle,
                 items: _measures.map((String value) {
                   return DropdownMenuItem<String>(
@@ -163,7 +166,8 @@ class _MyAppState extends State<MyApp> {
                 flex: 2,
               ),
               RaisedButton(
-                child: Text('Convert', style: inputStyle),
+                color: Colors.blue,
+                child: Text('Convert', style: TextStyle(color: Colors.white)),
                 onPressed: () {
                   if (_startMeasure.isEmpty || _convertedMeasure.isEmpty ||
                       _numberForm==0) {
