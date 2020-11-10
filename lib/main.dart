@@ -9,8 +9,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final TextStyle inputStyle = TextStyle(
-    fontSize: 16,
-    color: Colors.blue[700],
+    fontSize: 18,
+    color: Colors.black87,
   );
 
   final TextStyle labelStyle = TextStyle(
@@ -90,15 +90,10 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Spacer(),
-              Text(
-                'Value',
-                style: labelStyle,
-              ),
-              Spacer(),
               TextField(
                 style: inputStyle,
                 decoration: InputDecoration(
-                  hintText: "Please insert the measure to be converted",
+                  hintText: "Please enter the value",
                 ),
                 onChanged: (text) {
                   var rv = double.tryParse(text);
@@ -111,76 +106,79 @@ class _MyAppState extends State<MyApp> {
               ),
               Spacer(),
               //Text((_numberForm==null)? '' : _numberForm.toString())
-              Text(
-                'From',
-                style: labelStyle,
-              ),
-              Spacer(),
-              DropdownButton(
-                style: inputStyle,
-                hint: Text("Enter The Unit",style: inputStyle,),
-                isExpanded: true,
-                items: _measures.map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _startMeasure = value;
-                  });
-                },
-                value: _startMeasure,
-              ),
-
-              Spacer(),
-              Text(
-                'To',
-                style: labelStyle,
-              ),
-              Spacer(),
-              DropdownButton(
-                isExpanded: true,
-                hint: Text("Enter The Unit",style: inputStyle,),
-                style: inputStyle,
-                items: _measures.map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
+              Row(
+                children: [
+                  DropdownButton(
+                    style: inputStyle,
+                    hint: Text(
+                      "Unit",
                       style: inputStyle,
                     ),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _convertedMeasure = value;
-                  });
-                },
-                value: _convertedMeasure,
+                    items: _measures.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _startMeasure = value;
+                      });
+                    },
+                    value: _startMeasure,
+                  ),
+                  Spacer(),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.blue[600],
+                    size: 24.0,
+                    semanticLabel: 'Text to announce in accessibility modes',
+                  ),
+                  Spacer(),
+                  DropdownButton(
+                    hint: Text(
+                      "Unit",
+                      style: inputStyle,
+                    ),
+                    style: inputStyle,
+                    items: _measures.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: inputStyle,
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _convertedMeasure = value;
+                      });
+                    },
+                    value: _convertedMeasure,
+                  ),
+                ],
               ),
 
-
               Spacer(
-                flex: 2,
+                flex: 1,
               ),
               RaisedButton(
                 color: Colors.blue,
                 child: Text('Convert', style: TextStyle(color: Colors.white)),
                 onPressed: () {
-                  if (_startMeasure.isEmpty || _convertedMeasure.isEmpty ||
-                      _numberForm==0) {
+                  if (_startMeasure.isEmpty ||
+                      _convertedMeasure.isEmpty ||
+                      _numberForm == 0) {
                     return;
-                  }
-                  else {
+                  } else {
                     convert(_numberForm, _startMeasure, _convertedMeasure);
                   }
                 },
               ),
 
               Spacer(
-                flex: 2,
+                flex: 1,
               ),
               Text((_resultMessage == null) ? '' : _resultMessage,
                   style: labelStyle),
