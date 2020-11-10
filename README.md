@@ -5,8 +5,9 @@ The measures conversion app will allow your users to select a measure – metric
 ## Screenshots
 
 <p float="left">
-<img src="./lib/image/Enter_Task.jpg" width="200" height="450" />
-<img src="./lib/image/Task_UI.jpg" width="200" height="450" />
+<img src="./image/Homepage.jpg" width="200" height="450" />
+<img src="./image/Dropdown.jpg" width="200" height="450" />
+<img src="./image/Converter.jpg" width="200" height="450" />
 </p>
 
 # Command To Install
