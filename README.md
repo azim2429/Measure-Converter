@@ -8,6 +8,7 @@ The measures conversion app will allow your users to select a measure – metric
 <img src="./image/Homepage.jpg" width="200" height="450" />
 <img src="./image/Dropdown.jpg" width="200" height="450" />
 <img src="./image/Converter.jpg" width="200" height="450" />
+<img src="./image/ezgif.com-gif-maker.gif" width="200" height="450" />
 </p>
 
 # Command To Install
