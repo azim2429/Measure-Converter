@@ -28,7 +28,8 @@ flutter run
 
 👨‍💻 **Abdul Azim**
 
-* Github: [@azim2429](https://github.com/azim2429)
+* Github: [Abdul Azim](https://github.com/azim2429)
+* Medium: [Unit Converter](https://abdulazim0402.medium.com/how-i-created-my-first-flutter-project-a-measurement-converter-app-805726c3725a)
 
 ## Show your support
 
